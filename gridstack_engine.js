@@ -1,66 +1,46 @@
+var isEditing = false;
 let grid = null;
 const widgets = [
-  {
-    id: 1,
-    title: "Widget 1",
-    grid: {
-      x: 0,
-      y: 0,
-      w: 2,
-      h: 2,
-    },
-  },
-  {
-    id: 2,
-    title: "Widget 2",
-    grid: {
-      x: 2,
-      y: 0,
-      w: 2,
-      h: 1,
-    },
-  },
-  {
-    id: 3,
-    title: "Widget 3",
-    grid: {
-      x: 0,
-      y: 2,
-      w: 2,
-      h: 1,
-    },
-  },
-  {
-    id: 4,
-    title: "Widget 4",
-    grid: {
-      x: 2,
-      y: 2,
-      w: 1,
-      h: 2,
-    },
-  },
-  {
-    id: 5,
-    title: "Widget 5",
-    grid: {
-      x: 3,
-      y: 2,
-      w: 1,
-      h: 2,
-    },
-  },
+ 
 ];
 
 function initGridStack() {
   grid = GridStack.init({
-    column: 4,
-    cellHeight: 100,
-    margin: 10,
+    minRow: 1,
+    cellHeight: "10rem",
+    margin: 5,
+    float: true,
     disableResize: !isEditing,
     disableDrag: !isEditing,
   });
   makeWidgets(widgets);
+}
+
+function postInitialisationEvents() {
+  grid.on("added removed change", function (e, items) {
+    if (!items) return;
+    let str = "";
+    items.forEach(function (item) {
+      str += " (x,y)=" + item.x + "," + item.y;
+    });
+    console.log(e.type + " " + items.length + " items:" + str);
+  });
+}
+
+let layout = "moveScale";
+function resizeGrid() {
+  let width = document.body.clientWidth;
+  if (width < 700) {
+    grid.column(1, layout);
+  } else if (width < 850) {
+    grid.column(3, layout);
+  } else if (width < 950) {
+    grid.column(6, layout);
+  } else if (width < 1100) {
+    grid.column(8, layout);
+  } else {
+    grid.column(12, layout);
+  }
 }
 
 function makeWidgets(widgets) {
@@ -70,7 +50,7 @@ function makeWidgets(widgets) {
 }
 
 function makeWidget(item) {
-  const elSelector = `#${item.id}`;
+  const elSelector = `#widget_${item.id}`;
   return grid.makeWidget(elSelector);
 }
 
@@ -80,8 +60,8 @@ async function addWidget() {
     id: widgetCount,
     title: `Widget ${widgetCount}`,
     grid: {
-      w: 1,
-      h: 1,
+      w: 3,
+      h: 2,
     },
   };
   widgets.push(widget);
@@ -100,7 +80,7 @@ function deleteWidget(widget) {
   widgets.splice(index, 1);
 }
 
-let isEditing = false;
+
 
 function toggleEdit() {
   if (isEditing) {
@@ -113,4 +93,12 @@ function toggleEdit() {
 
 (function () {
   initGridStack();
+  resizeGrid(); // finally size to actual window
+
+  postInitialisationEvents();
+
+  window.addEventListener("resize", function () {
+    resizeGrid();
+  });
+
 })();

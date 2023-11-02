@@ -1,12 +1,12 @@
 const line_chart = document.getElementById("lineChart");
 
-const line_labels = ['Sep','Oct','Nov','Dec'];
+const line_labels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug', 'Sep','Oct','Nov','Dec'];
 const line_data = {
   labels: line_labels,
   datasets: [
     {
       label: "Test Dataset",
-      data: [65, 59, 80, 55],
+      data: [10,55,150,120,200,60,65,65, 59, 80, 55,250],
       fill: false,
       borderColor: "rgb(75, 192, 192)",
       tension: 0.1,
