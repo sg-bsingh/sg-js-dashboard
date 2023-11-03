@@ -1,8 +1,6 @@
 var isEditing = false;
 let grid = null;
-const widgets = [
- 
-];
+const widgets = [];
 
 function initGridStack() {
   grid = GridStack.init({
@@ -13,7 +11,7 @@ function initGridStack() {
     disableResize: !isEditing,
     disableDrag: !isEditing,
   });
-  makeWidgets(widgets);
+  //makeWidgets(widgets);
 }
 
 function postInitialisationEvents() {
@@ -27,7 +25,7 @@ function postInitialisationEvents() {
   });
 }
 
-let layout = "moveScale";
+const layout = "moveScale";
 function resizeGrid() {
   let width = document.body.clientWidth;
   if (width < 700) {
@@ -80,8 +78,6 @@ function deleteWidget(widget) {
   widgets.splice(index, 1);
 }
 
-
-
 function toggleEdit() {
   if (isEditing) {
     grid.disable();
@@ -92,13 +88,40 @@ function toggleEdit() {
 }
 
 (function () {
-  initGridStack();
-  resizeGrid(); // finally size to actual window
+  // initGridStack();
+  // resizeGrid(); // finally size to actual window
 
-  postInitialisationEvents();
+  // postInitialisationEvents();
 
-  window.addEventListener("resize", function () {
-    resizeGrid();
-  });
+  // window.addEventListener("resize", function () {
+  //   resizeGrid();
+  // });
 
+  document.getElementById("btnLoad").onclick = function () {
+    let request = new XMLHttpRequest();
+    request.open("GET", "./dashboards/sentinel.json", false);
+    request.send(null);
+
+    var dash_obj = JSON.parse(request.responseText);
+
+    grid = GridStack.addGrid(document.querySelector("#divGridStack"), dash_obj);
+    resetEditLayout();
+    renderDashboard();
+
+    document.querySelector("#btnLoad").setAttribute("hidden", true);
+    document.querySelector("#btnDestroy").removeAttribute("hidden");
+  };
+
+  document.getElementById("btnDestroy").onclick = function () {
+    if (!grid) {
+      return;
+    }
+    grid.removeAll();
+    grid.destroy(true);
+
+    document.querySelector("#btnLoad").removeAttribute("hidden");
+    document.querySelector("#btnEdit").setAttribute("hidden", true);
+    document.querySelector("#btnDestroy").setAttribute("hidden", true);
+    
+  };
 })();

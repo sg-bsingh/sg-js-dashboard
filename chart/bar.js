@@ -1,6 +1,7 @@
-const bar_chart = document.getElementById('barChart');
+function render_bar_chart() {
+  const bar_chart = document.getElementById('barChart');
 
- barChartObj =  new Chart(bar_chart, {
+  barChartObj = new Chart(bar_chart, {
     type: 'bar',
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -18,3 +19,4 @@ const bar_chart = document.getElementById('barChart');
       }
     }
   });
+}
