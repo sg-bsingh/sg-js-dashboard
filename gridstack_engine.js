@@ -1,17 +1,6 @@
 (function () {
   document.getElementById("btnLoad").onclick = function () {
-    let request = new XMLHttpRequest();
-    request.open("GET", "./dashboards/sentinel.json", false);
-    request.send(null);
-
-    var dash_obj = JSON.parse(request.responseText);
-
-    grid = GridStack.addGrid(document.querySelector("#divGridStack"), dash_obj);
-    resetEditLayout();
-    renderDashboard();
-
-    document.querySelector("#btnLoad").setAttribute("hidden", true);
-    document.querySelector("#btnDestroy").removeAttribute("hidden");
+    loadDashboard();
   };
 
   document.getElementById("btnDestroy").onclick = function () {
@@ -26,6 +15,31 @@
     document.querySelector("#btnDestroy").setAttribute("hidden", true);
   };
 })();
+
+function loadDashboard() {
+  let request = new XMLHttpRequest();
+  request.open("GET", "./dashboards/sentinel.json", false);
+  request.send(null);
+
+  var dash_obj = JSON.parse(request.responseText);
+
+  if(typeof grid !== 'undefined'){
+    grid.destroy();
+  }
+  if(typeof barChartObj !== 'undefined'){
+    barChartObj.destroy();
+  }
+  if(typeof lineChartObj !== 'undefined'){
+    lineChartObj.destroy();
+  }
+
+  grid = GridStack.addGrid(document.querySelector("#divGridStack"), dash_obj);
+  resetEditLayout();
+  renderDashboard();
+
+  document.querySelector("#btnLoad").setAttribute("hidden", true);
+  document.querySelector("#btnDestroy").removeAttribute("hidden");
+}
 
 function removeWidget(el) {
   el.remove();

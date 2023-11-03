@@ -14,6 +14,7 @@
   };
 
   document.getElementById("btnCancel").onclick = function () {
+    loadDashboard();
     resetEditLayout();
   };
 
