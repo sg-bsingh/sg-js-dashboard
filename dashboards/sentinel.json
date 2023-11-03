@@ -1,0 +1,51 @@
+{
+    "minRow": 1,
+    "cellHeight": 10,
+    "margin": 5,
+    "float": true,
+    "cellHeightUnit": "rem",
+    "children": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 2,
+        "content": "\n          <table class=\"table table-borderless table-hover align-middle\">\n            <thead>\n              <tr class=\"table-dark\">\n                <th colspan=\"3\" scope=\"col\" id=\"widget_2_title\">\n                  Running Arrangement\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>SGT1 Breaker</td>\n                <td>\n                  <input type=\"text\" class=\"form-control\" id=\"sgt1_breaker\" value=\"Close\" disabled=\"\">\n                </td>\n                <td><i class=\"fa-solid fa-rotate\"></i></td>\n              </tr>\n              <tr>\n                <td>SGT2 Breaker</td>\n                <td>\n                  <input type=\"text\" class=\"form-control\" id=\"sgt2_breaker\" value=\"Close\" disabled=\"\">\n                </td>\n                <td><i class=\"fa-solid fa-rotate\"></i></td>\n              </tr>\n              <tr>\n                <td>Middleble Fdr</td>\n                <td>\n                  <input type=\"text\" class=\"form-control\" id=\"sgt1_breaker\" value=\"Close\" disabled=\"\">\n                </td>\n                <td><i class=\"fa-solid fa-rotate\"></i></td>\n              </tr>\n            </tbody>\n          </table>\n        "
+      },
+      {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 2,
+        "content": "\n          <table class=\"table table-borderless table-hover align-middle\">\n            <thead>\n              <tr class=\"table-dark\">\n                <th colspan=\"4\" scope=\"col\" id=\"widget_2_title\">\n                  System Voltage and Alarms (kV)\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>Transmission</td>\n                <td>\n                  <input type=\"number\" class=\"form-control\" id=\"transmission\" value=\"368.00\" disabled=\"\">\n                </td>\n                <td>\n                  <i class=\"far fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"Off state\" aria-hidden=\"true\"></i>\n                </td>\n                <td>\n                  <i class=\"fas fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"On state\" aria-hidden=\"true\"></i>\n                </td>\n              </tr>\n              <tr>\n                <td>Chapelcross</td>\n                <td>\n                  <input type=\"number\" class=\"form-control\" id=\"transmission\" value=\"33.37\" disabled=\"\">\n                </td>\n                <td>\n                  <i class=\"fas fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"On state\" aria-hidden=\"true\"></i>\n                </td>\n                <td>\n                  <i class=\"far fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"Off state\" aria-hidden=\"true\"></i>\n                </td>\n              </tr>\n              <tr>\n                <td>Gretna</td>\n                <td>\n                  <input type=\"number\" class=\"form-control\" id=\"transmission\" value=\"33.42\" disabled=\"\">\n                </td>\n                <td>\n                  <i class=\"far fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"Off state\" aria-hidden=\"true\"></i>\n                </td>\n                <td>\n                  <i class=\"far fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"Off state\" aria-hidden=\"true\"></i>\n                </td>\n              </tr>\n              <tr>\n                <td>Middleble</td>\n                <td>\n                  <input type=\"number\" class=\"form-control\" id=\"transmission\" value=\"33.36\" disabled=\"\">\n                </td>\n                <td>\n                  <i class=\"fas fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"On state\" aria-hidden=\"true\"></i>\n                </td>\n                <td>\n                  <i class=\"fas fa-lightbulb\" data-bs-toggle=\"tooltip\" data-bs-title=\"On state\" aria-hidden=\"true\"></i>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        "
+      },
+      {
+        "x": 0,
+        "y": 2,
+        "w": 5,
+        "h": 2,
+        "content": "\n          <canvas id=\"barChart\" width=\"685\" height=\"343\" style=\"display: block; box-sizing: border-box; height: 300px; width: 601px;\"></canvas>\n        "
+      },
+      {
+        "x": 5,
+        "y": 2,
+        "w": 2,
+        "h": 2,
+        "content": "\n            <table class=\"table table-borderless table-hover align-middle\">\n              <thead>\n                <tr class=\"table-dark\">\n                  <th colspan=\"2\" scope=\"col\" id=\"widget_1_title\">\n                    ANM System Control\n                  </th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>ANM Enable</td>\n                  <td>\n                    <div class=\"form-check form-switch\">\n                      <input class=\"form-check-input\" type=\"checkbox\" id=\"anm_enabled\" checked=\"\">\n                    </div>\n                  </td>\n                </tr>\n                <tr>\n                  <td>Microgrid Enable</td>\n                  <td>\n                    <div class=\"form-check form-switch\">\n                      <input class=\"form-check-input\" type=\"checkbox\" id=\"microgrid_enabled\">\n                    </div>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          "
+      },
+      {
+        "x": 7,
+        "y": 2,
+        "w": 5,
+        "h": 2,
+        "content": "\n          <canvas id=\"lineChart\" width=\"685\" height=\"343\" style=\"display: block; box-sizing: border-box; height: 300px; width: 601px;\"></canvas>\n        "
+      },
+      {
+        "x": 0,
+        "y": 4,
+        "w": 12,
+        "h": 3,
+        "content": "\n          <textarea cols=\"195\" rows=\"16\" id=\"txtAreaJsonData\">Awaiting JSON data...!</textarea>\n        "
+      }
+    ]
+  }
