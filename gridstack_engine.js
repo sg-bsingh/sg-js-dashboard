@@ -124,4 +124,10 @@ function toggleEdit() {
     document.querySelector("#btnDestroy").setAttribute("hidden", true);
     
   };
+
 })();
+
+function removeWidget(el){
+    el.remove();
+    grid.removeWidget(el, false);
+}
