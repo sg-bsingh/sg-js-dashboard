@@ -1,22 +1,24 @@
 function render_bar_chart() {
-  const bar_chart = document.getElementById('barChart');
+  const bar_chart = document.getElementById("barChart");
 
   barChartObj = new Chart(bar_chart, {
-    type: 'bar',
+    type: "bar",
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
+      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      datasets: [
+        {
+          label: "# of Votes",
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+        },
+      ],
     },
     options: {
       scales: {
         y: {
-          beginAtZero: true
-        }
-      }
-    }
+          beginAtZero: true,
+        },
+      },
+    },
   });
 }

@@ -1,18 +1,15 @@
-/* global bootstrap: false */
-
 (function () {
+  
   // Single event per element.
   document.getElementById("btnEdit").onclick = function () {
-    isEditing = true;
     grid.enable();
     document.querySelector("#btnCancel").removeAttribute("hidden");
     document.querySelector("#btnEdit").setAttribute("hidden", true);
     document.querySelector("#btnSave").removeAttribute("hidden");
 
-
     let delete_btn = document.querySelectorAll(".remove-widget");
     for (let i = 0; i < delete_btn.length; i++) {
-      delete_btn[i].removeAttribute("hidden");        
+      delete_btn[i].removeAttribute("hidden");
     }
   };
 
@@ -33,16 +30,15 @@
 })();
 
 function resetEditLayout() {
-  isEditing = false;
   grid.disable();
   document.querySelector("#btnCancel").setAttribute("hidden", true);
   document.querySelector("#btnEdit").removeAttribute("hidden");
   document.querySelector("#btnSave").setAttribute("hidden", true);
 
   let delete_btn = document.querySelectorAll(".remove-widget");
-    for (let i = 0; i < delete_btn.length; i++) {
-      delete_btn[i].setAttribute("hidden", true); 
-    }
+  for (let i = 0; i < delete_btn.length; i++) {
+    delete_btn[i].setAttribute("hidden", true);
+  }
 }
 
 function renderDashboard() {

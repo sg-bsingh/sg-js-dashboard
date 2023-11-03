@@ -1,8 +1,20 @@
-
 function render_line_chart() {
   const line_chart = document.getElementById("lineChart");
 
-  const line_labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const line_labels = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const line_data = {
     labels: line_labels,
     datasets: [
@@ -23,4 +35,3 @@ function render_line_chart() {
 
   lineChartobj = new Chart(line_chart, line_config);
 }
-
